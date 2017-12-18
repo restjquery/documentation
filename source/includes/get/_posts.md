@@ -1,9 +1,44 @@
-# Posts #
+## List posts ##
 
-## Get Posts ##
+This API helps you to list all the posts that have been created.
+
+### HTTP Request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/wp/v2/posts</h6>
+  </div>
+</div>
+
+#### Available parameters ####
+
+Attribute | Type | Description
+--------- | ------- | -----------
+`page` | integer | Current page of the collection.
+`per_page` | integer | Maximum number of items to be returned in result set.
+`search` | string | Limit results to those matching a string.
+`after` | date | Limit response to posts published after a given ISO8601 compliant date.
+`author` | integer | Limit results set to posts assigned to specific authors.
+`author_exclude` | integer | Ensure result set excludes posts assigned to specific authors.
+`before` | date | Limit response to posts published before a given ISO8601 compliant date.
+`exclude` | array | Ensure result set excludes specific IDs.
+`include` | array | Ensure result set includes specific IDs.
+`offset` | | Offset the result set by a specific number of items.
+`order` | `asc` or `desc` | Order sort attribute ascending or descending.
+`order_by` | `author`, `date`, `id`, `include`, `modified`, `parent`, `relevance`, `slug`, `title` | Sort collection by object attribute.
+`slug` | string | Limit result set to posts with one or more specific slugs.
+`status` | string | Limit result set to posts assigned one or more statuses. One of: `publish`, `future`, `draft`, `pending`, `private`
+`categories` | array | Limit result set to all items that have the specified term assigned in the categories taxonomy.
+`categories_exclude` | array | Limit result set to all items except those that have the specified term assigned in the categories taxonomy.
+`tags` | array | Limit result set to all items that have the specified term assigned in the tags taxonomy.
+`tags_exclude` | array | Limit result set to all items except those that have the specified term assigned in the tags taxonomy.
+`sticky` | boolean | Limit result set to items that are sticky.
 
 ```javascript
-var posts = restjQuery();
+var posts = restjQuery(
+  endpoint: "posts"
+);
 ```
 
 > JSON response example:
@@ -15,14 +50,14 @@ var posts = restjQuery();
     "date":"2017-01-04T15:46:25",
     "date_gmt":"2017-01-04T15:46:25",
     "guid":{
-      "rendered":"http:\/\/experiments.dev\/?p=1"
+      "rendered":"http:\/\/restjquery.dev\/?p=1"
     },
     "modified":"2017-01-04T15:46:25",
     "modified_gmt":"2017-01-04T15:46:25",
     "slug":"hello-world",
     "status":"publish",
     "type":"post",
-    "link":"https:\/\/experiments.dev\/hello-world\/",
+    "link":"https:\/\/restjquery.dev\/hello-world\/",
     "title":{
       "rendered":"Hello world!"
     },
@@ -47,51 +82,51 @@ var posts = restjQuery();
     "_links":{
       "self":[
         {
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/posts\/1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/posts\/1"
         }
       ],
       "collection":[
         {
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/posts"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/posts"
         }
       ],
       "about":[
         {
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/types\/post"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/types\/post"
         }
       ],
       "author":[
         {
           "embeddable":true,
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/users\/1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/users\/1"
         }
       ],
       "replies":[
         {
           "embeddable":true,
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/comments?post=1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/comments?post=1"
         }
       ],
       "version-history":[
         {
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/posts\/1\/revisions"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/posts\/1\/revisions"
         }
       ],
       "wp:attachment":[
         {
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/media?parent=1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/media?parent=1"
         }
       ],
       "wp:term":[
         {
           "taxonomy":"category",
           "embeddable":true,
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/categories?post=1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/categories?post=1"
         },
         {
           "taxonomy":"post_tag",
           "embeddable":true,
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/tags?post=1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/tags?post=1"
         }
       ],
       "curies":[
@@ -106,18 +141,18 @@ var posts = restjQuery();
 ]
 ```
 
-This lets you retrieve posts.
+## Retrieve a post ##
+
+This API helps you to retrieve and view a specific post by ID.
 
 ### HTTP Request ###
 
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/wp/v2/posts</h6>
+    <h6>/wp-json/wp/v2/posts/1</h6>
   </div>
 </div>
-
-## Get a Single Post ##
 
 ```javascript
 var hello_world = restjQuery(
@@ -133,14 +168,14 @@ var hello_world = restjQuery(
     "date":"2017-01-04T15:46:25",
     "date_gmt":"2017-01-04T15:46:25",
     "guid":{
-      "rendered":"http:\/\/experiments.dev\/?p=1"
+      "rendered":"http:\/\/restjquery.dev\/?p=1"
     },
     "modified":"2017-01-04T15:46:25",
     "modified_gmt":"2017-01-04T15:46:25",
     "slug":"hello-world",
     "status":"publish",
     "type":"post",
-    "link":"https:\/\/experiments.dev\/hello-world\/",
+    "link":"https:\/\/restjquery.dev\/hello-world\/",
     "title":{
       "rendered":"Hello world!"
     },
@@ -165,51 +200,51 @@ var hello_world = restjQuery(
     "_links":{
       "self":[
         {
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/posts\/1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/posts\/1"
         }
       ],
       "collection":[
         {
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/posts"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/posts"
         }
       ],
       "about":[
         {
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/types\/post"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/types\/post"
         }
       ],
       "author":[
         {
           "embeddable":true,
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/users\/1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/users\/1"
         }
       ],
       "replies":[
         {
           "embeddable":true,
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/comments?post=1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/comments?post=1"
         }
       ],
       "version-history":[
         {
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/posts\/1\/revisions"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/posts\/1\/revisions"
         }
       ],
       "wp:attachment":[
         {
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/media?parent=1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/media?parent=1"
         }
       ],
       "wp:term":[
         {
           "taxonomy":"category",
           "embeddable":true,
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/categories?post=1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/categories?post=1"
         },
         {
           "taxonomy":"post_tag",
           "embeddable":true,
-          "href":"https:\/\/experiments.dev\/wp-json\/wp\/v2\/tags?post=1"
+          "href":"https:\/\/restjquery.dev\/wp-json\/wp\/v2\/tags?post=1"
         }
       ],
       "curies":[
@@ -222,14 +257,3 @@ var hello_world = restjQuery(
     }
   }
 ```
-
-This lets you retrieve and view a specific post.
-
-### HTTP Request ###
-
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/wp/v2/posts/1</h6>
-  </div>
-</div>

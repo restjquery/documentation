@@ -1,6 +1,6 @@
-# Comments #
+## Retrieve comments ##
 
-## Get Comments ##
+This API helps you to list all the comments that have been created.
 
 ```javascript
 var comments = restjQuery(
@@ -14,8 +14,6 @@ var comments = restjQuery(
 code response goes here
 ```
 
-This lets you retrieve comments.
-
 ### HTTP Request ###
 
 <div class="api-endpoint">
@@ -25,7 +23,9 @@ This lets you retrieve comments.
   </div>
 </div>
 
-## Get a Single Comment ##
+## Retrieve a comment ##
+
+This API helps you to retrieve and view a specific comment by ID.
 
 ```javascript
 var comments = restjQuery(
@@ -38,8 +38,6 @@ var comments = restjQuery(
 ```json
 code response goes here
 ```
-
-This lets you retrieve and view a specific comment.
 
 ### HTTP Request ###
 

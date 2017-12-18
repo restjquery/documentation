@@ -1,6 +1,15 @@
-# Pages #
+## List pages ##
 
-## Get Pages ##
+This API helps you to list all the pages that have been created.
+
+### HTTP Request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/wp/v2/pages</h6>
+  </div>
+</div>
 
 ```javascript
 var pages = restjQuery(
@@ -14,18 +23,9 @@ var pages = restjQuery(
 code response goes here
 ```
 
-This lets you retrieve pages.
+## Retrieve a page ##
 
-### HTTP Request ###
-
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/wp/v2/pages</h6>
-  </div>
-</div>
-
-## Get a Single Page ##
+This API helps you to retrieve and view a specific page by ID.
 
 ```javascript
 var sample_page = restjQuery(
@@ -38,8 +38,6 @@ var sample_page = restjQuery(
 ```json
 code response goes here
 ```
-
-This lets you retrieve and view a specific page.
 
 ### HTTP Request ###
 

@@ -1,20 +1,16 @@
-# Errors
+## Console Errors ##
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+<aside class="notice">You might encounter errors when accessing the REST API. These console errors warn you when a variable is not defined or the script is used the wrong way. You can view them when you have developer mode enabled on your choice of browser.</aside>
 
-The Kittn API uses the following error codes:
-
-
-Error Code | Meaning
+Error Code | Error Type
 ---------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+`RJ-101` | Script can not run as a file.
+`RJ-102` | Authorization method was not specified.
+`RJ-103` | Password for authorization is missing! (Basic authentication only.)
+`RJ-104` | Namespace is unknown!
+`RJ-105` | Author was not defined when creating new post!
+`RJ-403` | Form method was not set. Are we posting or getting something?
+`RJ-404` | Post data is empty! We kind of need data to post.
+`RJ-500` | Endpoint is unknown!
+
+Errors return both the appropriate status code followed by the response.
